@@ -1,16 +1,3 @@
-# Crea una clase llamada Cuenta que tendrá los siguientes 
-# atributos: titular (que es una persona) y cantidad (puede tener decimales). 
-# El titular será obligatorio y la cantidad es opcional. 
-# Construye los siguientes métodos para la clase:
-# a)Un constructor, donde los datos pueden estar vacíos.
-# b)Los setters y getters para cada uno de los atributos. 
-# El atributo no se puede modificar directamente, sólo ingresando 
-# o retirando dinero. 
-# c)mostrar(): Muestra los datos de la cuenta. 
-# d)ingresar(cantidad): se ingresa una cantidad a la cuenta, si la 
-# cantidad introducida es negativa, no se hará nada. 
-# e)retirar(cantidad): se retira una cantidad a la cuenta. 
-# La cuenta puede estar en números rojos.
 import os
 os.system("cls")
 class Cuenta: #creo la clase llamada Cuenta
@@ -51,6 +38,7 @@ class Cuenta: #creo la clase llamada Cuenta
     def retirar (self):
         while True:
             try:
+                #permite el ingreso de un valor superior al que tenemos en la cuenta, y deja el saldo negativo (que seria mostrarlo en rojo)
                 retiro=float(input("Ingrese la cantidad de dinero a retirar: "))     
             except ValueError:
                 print("Dato erroneo, por favor escribe un numero.")
@@ -62,6 +50,7 @@ class Cuenta: #creo la clase llamada Cuenta
         print (f"En su cuenta ahora tiene $ {self.__cantidad}")
 finTit = False
 while (finTit != True):
+    #permite ingresar "m3", "mm", caracteres sin limite
     titular = input("Ingrese nombre y apellido del titular de la cuenta: ")   
     list(titular)
     if (titular.isnumeric()):
@@ -75,6 +64,7 @@ while (finTit != True):
 while True:
     try:
         cantidad = float(input("Ingrese fondos disponibles: "))
+        #debería mostrar cartel de error por ingreso negativo para orientar al usuario porqué no continúa la ejecución
     except ValueError:
         print("Debe escribir un número")
         continue
@@ -87,4 +77,3 @@ persona = Cuenta(titular, cantidad)
 print(persona)
 persona.ingresar()
 persona.retirar()
-
