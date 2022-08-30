@@ -1,12 +1,3 @@
-# Ejercicio 1 
-# Vamos a crear una clase llamada Persona. Sus atributos son: nombre, edad y DNI. 
-# Construye los siguientes métodos para la clase:
-# Un constructor, donde los datos pueden estar vacíos.
-# Los setters y getters para cada uno de los atributos. 
-# Hay que validar las entradas de datos. 
-# mostrar(): Muestra los datos de la persona.  
-# esMayorDeEdad(): Devuelve un valor lógico indicando si es mayor de edad.
-
 import os
 os.system("cls")
 
@@ -43,6 +34,7 @@ class Persona():
             print("Es menor de edad")
             return False               
 finNom = False
+#permite ingresar nombres de 2 caracteres, nombre apellido y 1 número, "m+" ,"m3"
 while (finNom != True):
     nombre =input("Ingrese su nombre completo: ")
     if nombre == "":
@@ -60,6 +52,7 @@ while (finNom != True):
 while True:
     try:
         edad = int(input("Ingrese su edad: "))
+        #permite ingresar espacio y un numero, ejemplo: " 6"
     except ValueError:
         print("Debe escribir un número y que no sea decimal")
         continue
@@ -67,6 +60,7 @@ while True:
         print("Debe escribir un número positivo.")
         continue
     if edad >=100:
+        #sugerir cuál es el límite máx.En este caso vos determinaste que sea menor a 100 pero podrías añadir esa info al msjito de error para guiar al usuario
         print ("Debe ingresar una edad menor")
         continue
     else:    
@@ -79,6 +73,8 @@ while (finDoc != True):
         pass
     list(documento)
     if (documento.isnumeric() and len (documento) == 8):
+        #no admite dni de 6 caracteres como las personas que tienen el valor de su libreta cívica
+        #permite que ingreses un espacio y le des enter
         finDoc = True
     elif(len(documento)<6):
         print("Ingrese una opcion válida")
